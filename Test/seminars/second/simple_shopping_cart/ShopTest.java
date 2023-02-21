@@ -191,12 +191,16 @@ class ShopTest {
      */
     @ParameterizedTest
     @ValueSource(ints = {13})
-    void incorrectProductSelectionCausesException() {
+    void incorrectProductSelectionCausesException(int i) {
         // Arrange (Подготовка)
-
+        Shop shop = new Shop(getStoreItems());
+        Cart cart = new Cart(shop);
         // Act (Выполнение)
-
+        String suffix = Integer.toString(i);
         // Assert (Проверка утверждения)
+        assertThatThrownBy(() -> cart.addProductToCartByID(i))
+                .isInstanceOf(RuntimeException.class)
+                .hasMessage("Не найден продукт с id: " + suffix);
     }
 
     /**
