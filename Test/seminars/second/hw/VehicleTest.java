@@ -32,4 +32,13 @@ class VehicleTest {
         bike.testDrive();
         assertEquals(75, bike.getSpeed());
     }
+    //проверить, что в режиме парковки
+    // (сначала testDrive, потом park, т.е эмуляция движения транспорта) машина останавливается (speed = 0)
+    @Test
+    public void testCarParking(){
+        Car car = new Car("Citroen", "C4", 2014);
+        car.testDrive();
+        car.park();
+        assertEquals(0, car.getSpeed());
+    }
 }
