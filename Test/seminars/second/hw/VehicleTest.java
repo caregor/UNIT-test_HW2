@@ -39,6 +39,13 @@ class VehicleTest {
         Car car = new Car("Citroen", "C4", 2014);
         car.testDrive();
         car.park();
-        assertEquals(0, car.getSpeed());
+        assertEquals(0, car.getSpeed(), "Speed not 0!");
+    }
+    @Test
+    public void testMotorcycleParking(){
+        Motorcycle bike = new Motorcycle("Suzuki", "V-Strom 650", 2022);
+        bike.testDrive();
+        bike.park();
+        assertEquals(0,bike.getSpeed(), "Speed not 0");
     }
 }
