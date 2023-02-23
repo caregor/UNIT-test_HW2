@@ -20,4 +20,11 @@ class VehicleTest {
         Motorcycle bike = new Motorcycle("Honda", "CBR1000RR-R", 2022);
         assertEquals(2, bike.getNumWheels(), "A motocycle has some different number of wheels than 2");
     }
+    // проверка того, объект Car развивает скорость 60 в режиме тестового вождения (testDrive())
+    @Test
+    public void testCarSpeedInTestDrive(){
+        Car car = new Car("Fiat", "500", 2022);
+        car.testDrive();
+        assertEquals(60, car.getSpeed());
+    }
 }
